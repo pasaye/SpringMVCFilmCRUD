@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +30,7 @@ public class FilmController {
 		mv.setViewName("filmId");
 		return mv;
 	}
+
 	@RequestMapping(path = "singleFilm.do", params = "id", method = RequestMethod.GET)
 	public ModelAndView singleFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
@@ -36,6 +41,16 @@ public class FilmController {
 		mv.setViewName("singleFilm");
 		return mv;
 	}
+	
+	@RequestMapping (path = {"AddNewFilm.do"})
+	public ModelAndView GetNewFilm(@RequestParam("addFilm") Film film) {
+		ModelAndView mv = new ModelAndView();
+		dao.createFilm(film);
+		mv.setViewName("results");
+		mv.addObject("film", dao.createFilm(film));
+		return mv;
+	}
+
 
 	@RequestMapping(path = "keyword.do", params = "title", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(@RequestParam("title") String title) {
@@ -59,5 +74,6 @@ public class FilmController {
 	}
 	
 	
+
 
 }
