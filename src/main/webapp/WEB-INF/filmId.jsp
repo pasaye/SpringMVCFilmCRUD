@@ -21,14 +21,5 @@
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
-	<ul>
-		<c:forEach var="x" items="${keyword}">
-			<li>${x.title}</li>
-			<li>${x.description}</li>
-			<li>${x.releaseYear}</li>
-			<li>${x.rating}</li>
-		</c:forEach>
-	</ul>
 </body>
 </html>

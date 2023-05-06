@@ -23,7 +23,7 @@ public class FilmController {
 		int newId = Integer.parseInt(id);
 		Film film = dao.findFilmById(newId);
 		mv.addObject("film", film);
-		mv.setViewName("results");
+		mv.setViewName("filmId");
 		return mv;
 	}
 
@@ -32,7 +32,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.searchByKeyWord(title);
 		mv.addObject("keyword", films);
-		mv.setViewName("results");
+		mv.setViewName("keyword");
 		return mv;
 	}
 
