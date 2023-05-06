@@ -16,20 +16,17 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
-	
+	private String category;
+
 	private List<Actor> cast = new ArrayList<>();
-	
-	
+
 	private static final String PURPLE = "\u001B[35m";
 	private static final String RESET = "\u001B[0m";
-	
-	
+
 	public Film() {
-		
+
 	}
-	
-	
-	
+
 	public Film(String title, String description, int releaseYear, String language, String rating) {
 		this.title = title;
 		this.description = description;
@@ -37,7 +34,6 @@ public class Film {
 		this.language = language;
 		this.rating = rating;
 	}
-
 
 	public Film(int id, String title, String description, int releaseYear, String language, int rentalDuration,
 			double rentalRate, double length, double replacementCost, String rating, String specialFeatures) {
@@ -52,6 +48,10 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+	}
+
+	public Film(String category) {
+		this.category = category;
 	}
 
 	public int getId() {
@@ -142,6 +142,14 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public List<Actor> getCast() {
 		List<Actor> copy = new ArrayList<>(cast);
 		return copy;
@@ -153,8 +161,9 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "\nSelected film(s): " + title + "\n which is about: " + description + "\n and was released in: " + releaseYear + " \nfilmed in: " + PURPLE
-				+ language + RESET + " is rated: " + rating + "\n Actors:"+ getCast()+"]";
+		return "\nSelected film(s): " + title + "\n which is about: " + description + "\n and was released in: "
+				+ releaseYear + " \nfilmed in: " + PURPLE + language + RESET + " is rated: " + rating + "\n Actors:"
+				+ getCast() + "category" + category;
 	}
 
 	@Override
@@ -181,8 +190,5 @@ public class Film {
 				&& Double.doubleToLongBits(replacementCost) == Double.doubleToLongBits(other.replacementCost)
 				&& Objects.equals(specialFeatures, other.specialFeatures) && Objects.equals(title, other.title);
 	}
-	
-	
-	
-	
+
 }

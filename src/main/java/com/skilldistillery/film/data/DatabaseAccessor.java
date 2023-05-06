@@ -27,4 +27,6 @@ public interface DatabaseAccessor {
 	boolean saveFilm (Film film);
 	
 	boolean deleteFilm (Film film);
+
+	String getFilmCategory(int id);
 }

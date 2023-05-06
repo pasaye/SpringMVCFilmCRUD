@@ -26,6 +26,16 @@ public class FilmController {
 		mv.setViewName("filmId");
 		return mv;
 	}
+	@RequestMapping(path = "singleFilm.do", params = "id", method = RequestMethod.GET)
+	public ModelAndView singleFilm(@RequestParam("id") String id) {
+		ModelAndView mv = new ModelAndView();
+		int newId = Integer.parseInt(id);
+		Film film = dao.findFilmById(newId);
+		System.out.println(film);
+		mv.addObject("film", film);
+		mv.setViewName("singleFilm");
+		return mv;
+	}
 
 	@RequestMapping(path = "keyword.do", params = "title", method = RequestMethod.GET)
 	public ModelAndView keywordSearch(@RequestParam("title") String title) {
@@ -35,5 +45,19 @@ public class FilmController {
 		mv.setViewName("keyword");
 		return mv;
 	}
+	
+	@RequestMapping(path = "singleFilm.do", params = "title", method = RequestMethod.GET)
+	public ModelAndView keywordSearchSingleFilm(@RequestParam("title")  String title) {
+		System.out.println(title);
+		ModelAndView mv = new ModelAndView();
+		List<Film> films = dao.searchByKeyWord(title);
+		System.out.println("reached here");
+		System.out.println(films);
+		mv.addObject("resultFilms", films);
+		mv.setViewName("singleFilm");
+		return mv;
+	}
+	
+	
 
 }
