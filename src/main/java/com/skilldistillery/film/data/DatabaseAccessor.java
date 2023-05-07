@@ -15,19 +15,18 @@ public interface DatabaseAccessor {
 	public List<Film> findFilmsByActorId(int actorId);
 
 	public List<Film> searchByKeyWord(String keyword);
-	
+
 	public Actor createActor(Actor actor);
 
 	boolean saveActor(Actor actor);
 
-	boolean deleteActor(Actor actor);	
+	boolean deleteActor(Actor actor);
 
 	public Film createFilm(Film film);
-	
-	boolean saveFilm (Film film);
-	
 
-	Film deleteFilm (Film film);
+	boolean saveFilm(Film film);
+
+	Film deleteFilm(Film film);
 
 	String getFilmCategory(int id);
 

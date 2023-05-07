@@ -130,7 +130,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film = new Film(id, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating, features);
 				film.setCategory(category);
 				film.setCast(findActorsByFilmId(filmId));
-				
 
 			}
 
@@ -193,7 +192,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String langId = rs.getString("language.name");
 				String rating = rs.getString("rating");
 				String category = getFilmCategory(id);
-				
+
 				Film film = new Film(title, desc, releaseYear, langId, rating);
 				film.setCategory(category);
 				film.setCast(findActorsByFilmId(id));
@@ -208,31 +207,30 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		return search;
 	}
+
 	@Override
 	public String getFilmCategory(int id) {
-		String cate =null;
-		
+		String cate = null;
+
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PASS);
 			String sql = " SELECT category.* FROM film JOIN film_category ON film.id = film_category.film_id JOIN category ON film_category.category_id = category.id WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				cate = rs.getString("category.name");
-				
-			}	
+
+			}
 			rs.close();
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return cate;
 	}
-	
 
 	@Override
 	public Actor createActor(Actor actor) {
@@ -366,7 +364,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				ResultSet keys = stmt.getGeneratedKeys();
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
-					film.setId(newFilmId); }
+					film.setId(newFilmId);
+				}
 //				if (film.getCast() != null && film.getCast().size() > 0) {
 //						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
 //						stmt = conn.prepareStatement(sql);
@@ -381,7 +380,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film = null;
 			}
 			conn.commit(); // COMMIT TRANSACTION
-			
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -393,7 +392,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 //			throw new RuntimeException("Error inserting actor " + film);
 		}
-	
+
 		return film;
 	}
 
@@ -425,7 +424,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				}
 				conn.commit(); // COMMIT TRANSACTION
 			}
-			
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -449,7 +448,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			conn.setAutoCommit(false);
 			String sql = "DELETE FROM film_actor WHERE film_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());	
+			stmt.setInt(1, film.getId());
 			int updateCount = stmt.executeUpdate();
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
@@ -469,30 +468,25 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return filmToDelete;
 	}
-	
+
 	@Override
 	public Film updateFilm(Film film) {
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title = ?, description = ?, language_id = ?,"
-					+ "rental_duration = ?, rental_rate = ?, replacement_cost = ?, rating = ? "
-					+ " WHERE id = ?";
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, rating = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
-			stmt.setInt(3, film.getLanguageId());
-			stmt.setInt(4, film.getRentalDuration());
-			stmt.setDouble(5, film.getRentalRate());
-			stmt.setDouble(6, film.getReplacementCost());
+			stmt.setDouble(5, film.getReleaseYear());
 			stmt.setString(7, film.getRating());
 
 			int updateCount = stmt.executeUpdate();
-			
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			film = null;
-		
+
 		}
 		return film;
 	}

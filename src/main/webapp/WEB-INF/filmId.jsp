@@ -12,25 +12,28 @@
 		<c:when test="${! empty film}">
 			<a href="singleFilm.do?id=${film.id }">
 				<ul>
-				<li>${film.title}</li>
-				<li>${film.description}</li>
-				<li>${film.releaseYear}</li>
-				<li>${film.rating}</li>
+					<li>${film.title}</li>
+					<li>${film.description}</li>
+					<li>${film.releaseYear}</li>
+					<li>${film.rating}</li>
 
-			</ul>
-		
-             <ul>
-				<li>${film.cast}</li>
-				<li>${film.category}</li>
-			</ul>
+				</ul>
+
+				<ul>
+					<li>${film.cast}</li>
+					<li>${film.category}</li>
+				</ul>
 			</a>
-			
+
 			<form action="deleteFilm.do" method="GET">
-		<input type="hidden" value="${film.id}" name="deleteFilm" />
-		<input type="submit" value="Delete" class="delete"/>
-  	 
-		
-		</form>
+				<input type="hidden" value="${film.id}" name="deleteFilm" /> <input
+					type="submit" value="Delete film" class="delete" />
+			</form>
+			<br>
+			<form action="updateFilm.do" method="GET">
+				<input type="hidden" value="${film.id}" name="updateFilm" /> <input
+					type="submit" value="Update film" class="update" />
+			</form>
 
 		</c:when>
 		<c:otherwise>
