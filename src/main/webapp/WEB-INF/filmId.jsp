@@ -12,20 +12,11 @@
 		<c:when test="${! empty film}">
 			<a href="singleFilm.do?id=${film.id }">
 				<ul>
-<<<<<<< HEAD
-					<li>${film.title}</li>
-					<li>${film.description}</li>
-					<li>${film.releaseYear}</li>
-					<li>${film.rating}</li>
-					
-=======
 					<li>Film ID: ${film.id}</li>
 					<li>Title: ${film.title}</li>
 					<li>Description: ${film.description}</li>
 					<li>Year: ${film.releaseYear}</li>
 					<li>Rating: ${film.rating}</li>
->>>>>>> ca6c0536b4bf71233ba94ba8bf8e651c81296cbf
-
 				</ul>
 
 				<ul>
