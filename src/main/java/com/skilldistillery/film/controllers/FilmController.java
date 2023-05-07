@@ -28,29 +28,19 @@ public class FilmController {
 		return mv;
 	}
 
-//	@RequestMapping(path = "AddNewFilm.do", method = { RequestMethod.GET })
-//	public ModelAndView getNewFilm(Film film, RedirectAttributes redir) {
-//		System.out.println(film);
-
 	@RequestMapping(path = "singleFilm.do", params = "id", method = RequestMethod.GET)
 	public ModelAndView singleFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
 		int newId = Integer.parseInt(id);
 		Film film = dao.findFilmById(newId);
-		System.out.println(film);
 		mv.addObject("film", film);
 		mv.setViewName("singleFilm");
 		return mv;
 	}
 
-
-	
 	@RequestMapping (path = {"AddNewFilm.do"})
 	public ModelAndView getNewFilm( Film film) {
 		ModelAndView mv = new ModelAndView();
-//		Film movie = dao.createFilm(film);
-//		mv.setViewName("redirect:addNewFilm");
-//		redir.addFlashAttribute("film",movie);
 		Film f = null;
 
 		f = dao.createFilm(film);
@@ -77,8 +67,6 @@ public class FilmController {
 		System.out.println(title);
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.searchByKeyWord(title);
-		System.out.println("reached here");
-		System.out.println(films);
 		mv.addObject("resultFilms", films);
 		mv.setViewName("singleFilm");
 		return mv;

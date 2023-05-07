@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+}
+
+
+
+body {
+	background: linear-gradient(-45deg, #343a40, #ced4da, #f8f9fa, #ced4da, #343a40 );
+	background-size: 600% 600%;
+	animation: gradient 8s ease infinite;
+	height: 100vh;
+	overflow: hidden;
+	
+	margin-top: 175px;
+	margin-left: -80px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	font-family: sans-serif;
+}
+
+@keyframes gradient {
+	0%{background-position: 0% 50%;}
+	
+	50% {background-position: 100% 50%;}
+	
+	100%{background-position: 0% 50%;}
+}
+
+h1 {
+	text-decoration: underline;
+}
+
+fieldset {
+	border: 3px solid #75c9c8;
+	border-radius: 10px;
+}
+.container {
+	background-color: rgba(192, 185, 221, .3);
+	background-blend-mode: overlay;
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+}
+
+.items {
+	height: 200px;
+	text-decoration: underline;
+		
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	
+	
+}
+
+#button{
+	
+
+}
