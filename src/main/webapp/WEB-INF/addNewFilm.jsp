@@ -9,15 +9,21 @@
 </head>
 <body>
 <c:choose>
-		<c:when test="${! empty film}">
+		<c:when test="${! empty newFilm}">
 			
 				
-		<a href="singleFilm.do?id=${film.id }"><p>Title: ${film.title}</p></a>
-		<a href="singleFilm.do?id=${film.id }"><p>Description: ${film.description}</p></a>
-		<a href="singleFilm.do?id=${film.id }"><p>Release Year: ${film.releaseYear}</p></a>
-		<a href="singleFilm.do?id=${film.id }"><p>Rating ${film.rating}</p></a> 
-		<a href="singleFilm.do?id=${film.id }"><p>language ${film.language}</p></a> 
-				     
+		<a href="singleFilm.do?id=${film.id }">
+				<ul>
+					<li>Film ID: ${newFilm.id}</li>
+					<li>Title: ${newFilm.title}</li>
+					<li>Description: ${newFilm.description}</li>
+					<li>Year: ${newFilm.releaseYear}</li>
+					<li>Rating: ${newFilm.rating}</li>
+					<li>language: ${newFilm.language}</li>
+					<li>${newFilm.cast}</li>
+					<li>${newFilm.category}</li>
+				</ul>
+			</a>
 				
 			
 		</c:when>

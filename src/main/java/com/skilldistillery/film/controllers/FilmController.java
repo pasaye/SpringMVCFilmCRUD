@@ -42,12 +42,8 @@ public class FilmController {
 	public ModelAndView getNewFilm( Film film) {
 		ModelAndView mv = new ModelAndView();
 		Film f = null;
-
 		f = dao.createFilm(film);
-
-		if (f != null) {
-			System.out.println("f is null");
-		}
+		mv.addObject("newFilm", f);
 		mv.setViewName("addNewFilm");
 
 		return mv;

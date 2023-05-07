@@ -2,8 +2,6 @@
 	box-sizing: border-box;
 }
 
-
-
 body {
 	background: linear-gradient(-45deg, #343a40, #ced4da, #f8f9fa, #ced4da, #343a40 );
 	background-size: 600% 600%;

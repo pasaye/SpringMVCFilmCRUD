@@ -18,9 +18,6 @@
 					<li>Year: ${film.releaseYear}</li>
 					<li>Rating: ${film.rating}</li>
 					<li>language: ${film.language}</li>
-				</ul>
-
-				<ul>
 					<li>${film.cast}</li>
 					<li>${film.category}</li>
 				</ul>
