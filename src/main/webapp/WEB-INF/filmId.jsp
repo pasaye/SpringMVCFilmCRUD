@@ -16,6 +16,12 @@
 				<li>${film.releaseYear}</li>
 				<li>${film.rating}</li>
 			</ul>
+		<form action="deleteFilm.do" method="GET">
+		<input type="hidden" value="${film.id}" name="deleteFilm" />
+		<input type="submit" value="Delete" class="delete"/>
+  	 
+		
+		</form>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>

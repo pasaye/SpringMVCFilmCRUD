@@ -331,23 +331,23 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
 			stmt.setInt(3, film.getReleaseYear());
-			stmt.setString(4, film.getLanguage());
+			stmt.setInt(4, film.getLanguageId());
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
-					film.setId(newFilmId);
-					if (film.getCast() != null && film.getCast().size() > 0) {
-						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
-						stmt = conn.prepareStatement(sql);
-						for (Actor actor : film.getCast()) {
-							stmt.setInt(1, film.getId());
-							stmt.setInt(2, actor.getId());
-							updateCount = stmt.executeUpdate();
-						}
-					}
-				}
+					film.setId(newFilmId); }
+//				if (film.getCast() != null && film.getCast().size() > 0) {
+//						sql = "INSERT INTO film_actor (film_id, actor_id) VALUES (?,?)";
+//						stmt = conn.prepareStatement(sql);
+//						for (Actor actor : film.getCast()) {
+//							stmt.setInt(1, film.getId());
+//							stmt.setInt(2, actor.getId());
+//							updateCount = stmt.executeUpdate();
+//						}
+//					}
+//				}
 			} else {
 				film = null;
 			}
@@ -362,7 +362,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + film);
+//			throw new RuntimeException("Error inserting actor " + film);
 		}
 	
 		return film;
@@ -412,8 +412,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public boolean deleteFilm(Film film) {
+	public Film deleteFilm(Film film) {
 		Connection conn = null;
+		Film filmToDelete = film;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false);
@@ -435,9 +436,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			return false;
+			return null;
 		}
-		return true;
+		return filmToDelete;
 	}
 
 }

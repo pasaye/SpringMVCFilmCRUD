@@ -8,11 +8,9 @@
 <title>Spring MVC Film Site</title>
 </head>
 <body>
-
-<h1>MVC Film Site</h1>
-
-
-<a href="addNewFilm.html">Add a new film</a><br/> 
+ <p> You've successfully deleted this film </p>
+	
+ <a href="index.html" class="btn btn-secondary" role="button">Back to Home</a>
 
 </body>
 </html>

@@ -26,5 +26,5 @@ public interface DatabaseAccessor {
 	
 	boolean saveFilm (Film film);
 	
-	boolean deleteFilm (Film film);
+	Film deleteFilm (Film film);
 }

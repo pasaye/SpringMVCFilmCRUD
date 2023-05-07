@@ -16,7 +16,18 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private int languageId;
 	
+	public int getLanguageId() {
+		return languageId;
+	}
+
+
+
+	public void setLanguageId(int languageId) {
+		this.languageId = languageId;
+	}
+
 	private List<Actor> cast = new ArrayList<>();
 	
 	
@@ -151,15 +162,25 @@ public class Film {
 		this.cast = cast;
 	}
 
+	public Film(int id, String title, String description, int languageId) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.languageId = languageId;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "\nSelected film(s): " + title + "\n which is about: " + description + "\n and was released in: " + releaseYear + " \nfilmed in: " + PURPLE
-				+ language + RESET + " is rated: " + rating + "\n Actors:"+ getCast()+"]";
+				+ languageId + RESET + " is rated: " + rating + "\n Actors:"+ getCast()+"]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cast, description, id, language, length, rating, releaseYear, rentalDuration, rentalRate,
+		return Objects.hash(cast, description, id, languageId, length, rating, releaseYear, rentalDuration, rentalRate,
 				replacementCost, specialFeatures, title);
 	}
 
