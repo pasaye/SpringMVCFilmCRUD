@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.DatabaseAccessor;
-import com.skilldistillery.film.entities.Actor;
+
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -44,9 +43,10 @@ public class FilmController {
 		return mv;
 	}
 
+
 	
 	@RequestMapping (path = {"AddNewFilm.do"})
-	public ModelAndView GetNewFilm( Film film) {
+	public ModelAndView getNewFilm( Film film) {
 		ModelAndView mv = new ModelAndView();
 //		Film movie = dao.createFilm(film);
 //		mv.setViewName("redirect:addNewFilm");
@@ -72,8 +72,10 @@ public class FilmController {
 		return mv;
 	}
 
+
 	@RequestMapping(path = "deleteFilm.do",params = "id", method = { RequestMethod.POST })
 	public ModelAndView deleteFilm(@RequestParam("id") String id) {
+
 		ModelAndView mv = new ModelAndView();
 		int newId = Integer.parseInt(id);
 		Film film = dao.findFilmById(newId);
@@ -88,6 +90,7 @@ public class FilmController {
 	}
 
 
+
 	@RequestMapping(path = "updateFilm.do", params = "id", method = { RequestMethod.GET })
 	public ModelAndView updateFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
@@ -98,6 +101,5 @@ public class FilmController {
 
 		return mv;
 	}
-
 
 }
