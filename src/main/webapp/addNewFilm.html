@@ -2,34 +2,46 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Film</title>
+<title>Add Film</title>
+<link rel="stylesheet" href="addForm.css" type="text/css">
 </head>
 <body>
-  <h3>Add new film</h3>
-  <p> Fill in the details of the film: </p>
-  <form action="AddNewFilm.do" method="GET">
-    Title:      
+  <h1>Add new film</h1>
+  
+  <form class="container" action="AddNewFilm.do" method="GET">
+  <fieldset class="items add">
+  <label id="one">
+    Title: 
+  </label>     
     <input type="text" name="title" required/> 
     <br>
+    <label id="two">
     Description: 
+    </label>
     <input type="text" name="description"/> 
     <br>
+    <label id="three">
     Release year:
+    </label>
     <input type="number" name="releaseYear" required/>
     <br> 
     <br> 
-    
+    </fieldset>
+    <fieldset class="items">
+    <label id="four">
     Film Ratings:
+    </label>
     <input type="radio" id="G" name ="rating" value="G"/>G
     <input type="radio" id="PG" name ="rating" value="PG"/>PG
     <input type="radio" id="PG13" name ="rating" value="PG13"/>PG13
     <input type="radio" id="R" name ="rating" value="R"/>R
     <input type="radio" id="NC17" name ="rating" value="NC17"/>NC17
-
-   <br>
-Language ID:    
+	</fieldset>
+   <fieldset class="items">
+   <label id="five">
+   Language ID: 
+   </label>   
     <input type="number" name="languageId" min="1" max="6" required/> 
-    <br>
     <br>
     <ol>
 		<li>English</li>
@@ -38,11 +50,9 @@ Language ID:
 		<li>Mandarin</li>
 		<li>French</li>
 		<li>German</li>
-	</ol>
-  <!--   Actor:       
-    <input type="text" name="cast"/>  -->
-    
+	</ol>    
     <input type="submit" value="Add New Film" />
+    </fieldset>
   </form>
 </body>
 </html>
