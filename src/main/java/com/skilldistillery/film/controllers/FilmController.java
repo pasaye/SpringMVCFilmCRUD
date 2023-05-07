@@ -43,9 +43,10 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = { "AddNewFilm.do" })
-	public ModelAndView GetNewFilm(Film film) {
 
+	
+	@RequestMapping (path = {"AddNewFilm.do"})
+	public ModelAndView getNewFilm( Film film) {
 		ModelAndView mv = new ModelAndView();
 //		Film movie = dao.createFilm(film);
 //		mv.setViewName("redirect:addNewFilm");
