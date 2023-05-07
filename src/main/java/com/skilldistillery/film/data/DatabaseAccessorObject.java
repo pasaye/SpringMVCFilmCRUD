@@ -125,10 +125,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				double repCost = rs.getDouble("replacement_cost");
 				String rating = rs.getString("rating");
 				String features = rs.getString("special_features");
+				String category = getFilmCategory(filmId);
 
 				film = new Film(id, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating, features);
-
+				film.setCategory(category);
 				film.setCast(findActorsByFilmId(filmId));
+				
 
 			}
 
@@ -190,8 +192,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				int releaseYear = rs.getInt("release_year");
 				String langId = rs.getString("language.name");
 				String rating = rs.getString("rating");
-
+				String category = getFilmCategory(id);
+				
 				Film film = new Film(title, desc, releaseYear, langId, rating);
+				film.setCategory(category);
 				film.setCast(findActorsByFilmId(id));
 				search.add(film);
 			}
@@ -204,6 +208,31 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		return search;
 	}
+	@Override
+	public String getFilmCategory(int id) {
+		String cate =null;
+		
+		try {
+			Connection conn = DriverManager.getConnection(URL, USER, PASS);
+			String sql = " SELECT category.* FROM film JOIN film_category ON film.id = film_category.film_id JOIN category ON film_category.category_id = category.id WHERE film.id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				cate = rs.getString("category.name");
+				
+			}	
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return cate;
+	}
+	
 
 	@Override
 	public Actor createActor(Actor actor) {

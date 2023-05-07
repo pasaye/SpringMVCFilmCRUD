@@ -10,12 +10,14 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty keyword}">
-			<ul>
+		<ul>
 				<c:forEach var="x" items="${keyword}">
-					<li>${x.title}</li>
-					<li>${x.description}</li>
-					<li>${x.releaseYear}</li>
-					<li>${x.rating}</li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.title}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
+					<br>
+					<br>
 				</c:forEach>
 			</ul>
 		</c:when>

@@ -10,18 +10,28 @@
 <body>
 	<c:choose>
 		<c:when test="${! empty film}">
-			<ul>
+			<a href="singleFilm.do?id=${film.id }">
+				<ul>
 				<li>${film.title}</li>
 				<li>${film.description}</li>
 				<li>${film.releaseYear}</li>
 				<li>${film.rating}</li>
+
 			</ul>
-		<form action="deleteFilm.do" method="GET">
+		
+             <ul>
+				<li>${film.cast}</li>
+				<li>${film.category}</li>
+			</ul>
+			</a>
+			
+			<form action="deleteFilm.do" method="GET">
 		<input type="hidden" value="${film.id}" name="deleteFilm" />
 		<input type="submit" value="Delete" class="delete"/>
   	 
 		
 		</form>
+
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
