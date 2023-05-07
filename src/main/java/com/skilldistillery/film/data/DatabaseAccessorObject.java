@@ -469,5 +469,32 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return filmToDelete;
 	}
+	
+	@Override
+	public Film updateFilm(int filmId, Film film) {
+		try {
+			Connection conn = DriverManager.getConnection(URL, USER, PASS);
+			conn.setAutoCommit(false); // START TRANSACTION
+			String sql = "UPDATE film SET title = ?, description = ?, language_id = ?,"
+					+ "rental_duration = ?, rental_rate = ?, replacement_cost = ?, rating = ? "
+					+ " WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDescription());
+			stmt.setInt(3, film.getLanguageId());
+			stmt.setInt(4, film.getRentalDuration());
+			stmt.setDouble(5, film.getRentalRate());
+			stmt.setDouble(6, film.getReplacementCost());
+			stmt.setString(7, film.getRating());
+
+			int updateCount = stmt.executeUpdate();
+			
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			film = null;
+		
+		}
+		return film;
+	}
 
 }

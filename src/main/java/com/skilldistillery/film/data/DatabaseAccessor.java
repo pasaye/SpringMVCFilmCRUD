@@ -31,4 +31,6 @@ public interface DatabaseAccessor {
 
 	String getFilmCategory(int id);
 
+	Film updateFilm(int filmId, Film film);
+
 }
