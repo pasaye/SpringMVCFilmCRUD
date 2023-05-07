@@ -12,7 +12,7 @@
 	
 	<c:choose>
 		<c:when test="${! empty update}">
-			<a href="singleFilm.do?id=${film.id }"> <a href="index.html">Home</a>
+			<a href="filmId.do?id=${film.id }"> <a href="index.html">Home</a>
 
 				${update.title} ${update.description} ${update.releaseYear} ${update.rating}
 
