@@ -96,7 +96,7 @@ public class FilmController {
 		int newId = Integer.parseInt(id);
 		Film film = dao.findFilmById(newId);
 		mv.setViewName("updateFilm");
-		mv.addObject("update", film);
+		mv.addObject("updateFilm", film);
 
 		return mv;
 	}
