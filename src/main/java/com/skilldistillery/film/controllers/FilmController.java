@@ -44,9 +44,9 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = { "AddNewFilm.do" })
-	public ModelAndView GetNewFilm(@RequestParam("addFilm") Film film) {
-
+	
+	@RequestMapping (path = {"AddNewFilm.do"})
+	public ModelAndView GetNewFilm( Film film) {
 		ModelAndView mv = new ModelAndView();
 //		Film movie = dao.createFilm(film);
 //		mv.setViewName("redirect:addNewFilm");
@@ -88,17 +88,6 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "singleFilm.do", params = "title", method = RequestMethod.GET)
-	public ModelAndView keywordSearchSingleFilm(@RequestParam("title") String title) {
-		System.out.println(title);
-		ModelAndView mv = new ModelAndView();
-		List<Film> films = dao.searchByKeyWord(title);
-		System.out.println("reached here");
-		System.out.println(films);
-		mv.addObject("resultFilms", films);
-		mv.setViewName("singleFilm");
-		return mv;
-	}
 
 	@RequestMapping("updateFilm.do")
 	public ModelAndView updateFilm(Film film) {
@@ -110,5 +99,6 @@ public class FilmController {
 
 		return mv;
 	}
+
 
 }
