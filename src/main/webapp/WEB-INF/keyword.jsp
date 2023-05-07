@@ -18,6 +18,7 @@
 					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
 					<br>
 					<br>
+			
 				</c:forEach>
 			</ul>
 		</c:when>

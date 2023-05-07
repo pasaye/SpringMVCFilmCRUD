@@ -12,11 +12,19 @@
 		<c:when test="${! empty film}">
 			<a href="singleFilm.do?id=${film.id }">
 				<ul>
+<<<<<<< HEAD
 					<li>${film.title}</li>
 					<li>${film.description}</li>
 					<li>${film.releaseYear}</li>
 					<li>${film.rating}</li>
 					
+=======
+					<li>Film ID: ${film.id}</li>
+					<li>Title: ${film.title}</li>
+					<li>Description: ${film.description}</li>
+					<li>Year: ${film.releaseYear}</li>
+					<li>Rating: ${film.rating}</li>
+>>>>>>> ca6c0536b4bf71233ba94ba8bf8e651c81296cbf
 
 				</ul>
 
@@ -26,15 +34,48 @@
 				</ul>
 			</a>
 
-			<form action="deleteFilm.do" method="GET">
-				<input type="hidden" value="${film.id}" name="deleteFilm" /> <input
-					type="submit" value="Delete film" class="delete" />
+			<form action="deleteFilm.do" method="POST">
+				<input	type="number" value="Delete film" name="id" />
+				<input type="hidden" value="${film.id}" name="deleteFilm" />
+				<input type="submit" value="deleteFilm" name="deleteButton" />
+				 
+			</form>
+			
+			
+			
+			<h2> Update Film Details</h2>
+			
+<form action="updateFilm.do" method="GET">
+			  Title:      
+    <input type="text" name="title"/> 
+    <br>
+    Description: 
+    <input type="text" name="description"/> 
+    <br>
+    Release year:
+    <input type="number" name="releaseYear"/>
+    <br> 
+    <br> 
+    
+    Film Ratings:
+    <input type="radio" id="G" name ="rating" value="G">G
+    <input type="radio" id="PG" name ="rating" value="PG">PG
+    <input type="radio" id="PG13" name ="rating" value="PG13">PG13
+    <input type="radio" id="R" name ="rating" value="R">R
+    <input type="radio" id="NC17" name ="rating" value="NC17">NC17
+
+   <br>
+Language ID:    
+    <input type="number" name="languageId"/> 
+    <br>
+    <br>
+				<input	type="number" value="Update film" name="id" />
+				<input type="hidden" value="${film.id}" name="UpdateFilm" />
+				<input type="submit" value="updateFilm" name="UpdateButton" />
+				 
 			</form>
 			<br>
-			<form action="updateFilm.do" method="GET">
-				<input type="hidden" value="${film.id}" name="updateFilm" /> <input
-					type="submit" value="Update film" class="update" />
-			</form>
+			
 
 		</c:when>
 		<c:otherwise>
