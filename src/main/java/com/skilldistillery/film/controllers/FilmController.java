@@ -101,6 +101,17 @@ public class FilmController {
 		mv.setViewName("singleFilm");
 		return mv;
 	}
+
+	@RequestMapping("updateFilm.do")
+	public ModelAndView updateFilm(Film film) {
+		ModelAndView mv = new ModelAndView();
+		Film f = new Film();
+		f = dao.updateFilm(film);
+		mv.setViewName("filmUpdate");
+		mv.addObject("update", f);
+		
+		return mv;
+	}
 	
 	
 

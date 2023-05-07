@@ -471,7 +471,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 	
 	@Override
-	public Film updateFilm(int filmId, Film film) {
+	public Film updateFilm(Film film) {
 		try {
 			Connection conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false); // START TRANSACTION
