@@ -72,30 +72,29 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "deleteFilm.do", method = { RequestMethod.GET })
-	public ModelAndView deleteFilm(Film film) {
-		System.out.println(film);
+	@RequestMapping(path = "deleteFilm.do",params = "id", method = { RequestMethod.POST })
+	public ModelAndView deleteFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		Film f = null;
-		f = dao.findFilmById(film.getId());
+		int newId = Integer.parseInt(id);
+		Film film = dao.findFilmById(newId);
 
-		if (f != null) {
-			f = dao.deleteFilm(film);
+		if (film != null) {
+			film = dao.deleteFilm(film);
 			System.out.println("film deleted");
-			mv.addObject(f);
+			mv.addObject(film);
 		}
 		mv.setViewName("deleteFilm");
 		return mv;
 	}
 
 
-	@RequestMapping("updateFilm.do")
-	public ModelAndView updateFilm(Film film) {
+	@RequestMapping(path = "updateFilm.do", params = "id", method = { RequestMethod.GET })
+	public ModelAndView updateFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		Film f = new Film();
-		f = dao.updateFilm(film);
-		mv.setViewName("filmUpdate");
-		mv.addObject("update", f);
+		int newId = Integer.parseInt(id);
+		Film film = dao.findFilmById(newId);
+		mv.setViewName("updateFilm");
+		mv.addObject("update", film);
 
 		return mv;
 	}
