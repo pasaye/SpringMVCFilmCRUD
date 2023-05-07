@@ -12,10 +12,11 @@
 		<c:when test="${! empty film}">
 			
 				
-					<p>Title: ${film.title}</p>
-					<p>Description: ${film.description}</p>
-					<p>Release Year: ${film.releaseYear}</p>
-					<p>Rating ${film.rating}</p> 
+		<a href="singleFilm.do?id=${film.id }"><p>Title: ${film.title}</p></a>
+		<a href="singleFilm.do?id=${film.id }"><p>Description: ${film.description}</p></a>
+		<a href="singleFilm.do?id=${film.id }"><p>Release Year: ${film.releaseYear}</p></a>
+		<a href="singleFilm.do?id=${film.id }"><p>Rating ${film.rating}</p></a> 
+		<a href="singleFilm.do?id=${film.id }"><p>language ${film.language}</p></a> 
 				     
 				
 			

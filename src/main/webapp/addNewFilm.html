@@ -9,29 +9,36 @@
   <p> Fill in the details of the film: </p>
   <form action="AddNewFilm.do" method="GET">
     Title:      
-    <input type="text" name="title"/> 
+    <input type="text" name="title" required/> 
     <br>
     Description: 
     <input type="text" name="description"/> 
     <br>
     Release year:
-    <input type="number" name="releaseYear"/>
+    <input type="number" name="releaseYear" required/>
     <br> 
     <br> 
     
     Film Ratings:
-    <input type="radio" id="G" name ="rating" value="G">G
-    <input type="radio" id="PG" name ="rating" value="PG">PG
-    <input type="radio" id="PG13" name ="rating" value="PG13">PG13
-    <input type="radio" id="R" name ="rating" value="R">R
-    <input type="radio" id="NC17" name ="rating" value="NC17">NC17
+    <input type="radio" id="G" name ="rating" value="G"/>G
+    <input type="radio" id="PG" name ="rating" value="PG"/>PG
+    <input type="radio" id="PG13" name ="rating" value="PG13"/>PG13
+    <input type="radio" id="R" name ="rating" value="R"/>R
+    <input type="radio" id="NC17" name ="rating" value="NC17"/>NC17
 
    <br>
 Language ID:    
-    <input type="number" name="languageId"/> 
+    <input type="number" name="languageId" min="1" max="6" required/> 
     <br>
     <br>
-    
+    <ol>
+		<li>English</li>
+		<li>Italian</li>
+		<li>Japanese</li>
+		<li>Mandarin</li>
+		<li>French</li>
+		<li>German</li>
+	</ol>
   <!--   Actor:       
     <input type="text" name="cast"/>  -->
     

@@ -26,7 +26,7 @@
 	
 	<c:choose>
 	<c:when test="${! empty resultFilms}">
-	<c:forEach var="x" items="${ resultFilms}">
+	<c:forEach var="x" items="${ resultFilms}">	
 	${x.title}
 	${x.description}
 	${x.language}

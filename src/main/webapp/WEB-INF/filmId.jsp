@@ -17,6 +17,7 @@
 					<li>Description: ${film.description}</li>
 					<li>Year: ${film.releaseYear}</li>
 					<li>Rating: ${film.rating}</li>
+					<li>language: ${film.language}</li>
 				</ul>
 
 				<ul>
