@@ -25,8 +25,24 @@
 	</c:choose>
 	
 	<c:choose>
+		<c:when test="${! empty newFilm}">
+	${newFilm.id}
+	${newFilm.title}
+	${newFilm.description}
+	${newFilm.language}
+	${newFilm.rentalRate}
+	${newFilm.length}
+	${newFilm.replacementCost}
+	${newFilm.rating}
+	${newFilm.specialFeatures}
+	${newFilm.cast}
+	${newFilm.category}
+		</c:when>
+	</c:choose>
+	
+	<c:choose>
 	<c:when test="${! empty resultFilms}">
-	<c:forEach var="x" items="${ resultFilms}">
+	<c:forEach var="x" items="${ resultFilms}">	
 	${x.title}
 	${x.description}
 	${x.language}

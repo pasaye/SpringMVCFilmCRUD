@@ -16,6 +16,7 @@
 					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>
 					<li><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></li>
 					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.language}</a></li>
 					<br>
 					<br>
 			
