@@ -44,7 +44,7 @@
 			</div>
 		</fieldset>
 		<input type="submit" value ="${update.id}" name="id" >
-		<input type="hidden" name="id" /> <input type="submit" name="id" />
+		<input type="hidden" name="id" />
 	</form>
 	</c:when> 
 	 <c:otherwise>

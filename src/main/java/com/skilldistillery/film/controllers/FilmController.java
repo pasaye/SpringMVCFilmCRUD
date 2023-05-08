@@ -88,8 +88,14 @@ public class FilmController {
 	@RequestMapping(path = "updateFilm.do", params = "id", method = { RequestMethod.POST })
 	public ModelAndView updateFilms(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(id);
-		int newId = Integer.parseInt(id);
+		int newId =0;
+		try {
+			System.out.println(id);
+			newId = Integer.parseInt(id);
+		} catch (NumberFormatException e) {
+			System.out.println("COMMA!!!!!");
+			e.printStackTrace();
+		}
 		System.out.println(newId);
 		Film film = dao.findFilmById(newId);
 		System.out.println(newId);
