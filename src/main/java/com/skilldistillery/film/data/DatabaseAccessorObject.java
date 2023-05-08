@@ -464,7 +464,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film updateFilm(Film film) {
 		Connection conn = null;
-		Film filmToUpdate = film;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false); 
@@ -491,7 +490,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			}
 			return null;
 		}
-		return filmToUpdate;
+		return film;
 	}
 
 }

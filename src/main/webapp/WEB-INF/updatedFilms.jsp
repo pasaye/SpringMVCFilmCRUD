@@ -12,7 +12,7 @@
 	<c:choose> 
 	<c:when test="${! empty update}"> 
 
-	<form class="container" action="AddNewFilm.do" method="POST">
+	<form class="container" action="updateFilm.do" method="POST">
 		<fieldset class="items add">
 			<%-- film id:<input type="number" name="id" value="${update.id}"/>  --%>
 			<label id="one"> Title: </label>  
@@ -24,11 +24,11 @@
 		</fieldset>
 		<fieldset class="items">
 			<label id="four">Film Ratings </label> 
-				<input type="radio" id="G" name="rating"/>G 
-				<input type="radio" id="PG" name="rating"/>PG 
-				<input type="radio" id="PG13" name="rating"/>PG13
-				<input type="radio" id="R" name="rating"/>R
-				<input type="radio" id="NC17" name="rating"/>NC17
+				<input type="radio" id="G" name="rating" selected value="G"/>G 
+				<input type="radio" id="PG" name="rating" selected value="PG"/>PG 
+				<input type="radio" id="PG13" name="rating" selected value="PG13"/>PG13
+				<input type="radio" id="R" name="rating" selected value="R"/>R
+				<input type="radio" id="NC17" name="rating" selected value="NC17"/>NC17
 		</fieldset>
 		<fieldset class="items">
 			<label id="five"> Language ID: </label>
@@ -44,7 +44,7 @@
 			</div>
 		</fieldset>
 		<input type="submit" value ="${update.id}" name="id" >
-		<input type="hidden" name="id" />
+	<!-- <input type="hidden" name="id" /> -->
 	</form>
 	</c:when> 
 	 <c:otherwise>
