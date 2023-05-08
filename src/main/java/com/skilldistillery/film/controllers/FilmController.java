@@ -1,6 +1,8 @@
 package com.skilldistillery.film.controllers;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.DatabaseAccessor;
-
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -38,8 +39,8 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping (path = {"AddNewFilm.do"})
-	public ModelAndView getNewFilm( Film film) {
+	@RequestMapping(path = { "AddNewFilm.do" })
+	public ModelAndView getNewFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		Film f = null;
 		f = dao.createFilm(film);
@@ -68,7 +69,7 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "deleteFilm.do",params = "id", method = { RequestMethod.POST })
+	@RequestMapping(path = "deleteFilm.do", params = "id", method = { RequestMethod.POST })
 	public ModelAndView deleteFilm(@RequestParam("id") String id) {
 
 		ModelAndView mv = new ModelAndView();
@@ -84,32 +85,19 @@ public class FilmController {
 		return mv;
 	}
 
-
 	@RequestMapping(path = "updateFilm.do", params = "id", method = { RequestMethod.POST })
 	public ModelAndView updateFilms(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		int newId=0;
-		try {
-			System.out.println(id);
-			newId = Integer.parseInt(id);
-		} catch (NumberFormatException e) {
-			System.out.println("COMMA!!!!!!!");
-			e.printStackTrace();
-		}
-		System.out.println(newId);
-		Film film = dao.findFilmById(newId);
-		System.out.println(newId);
+
+		id = id.replaceAll("\\D+", "");
+		int newId = Integer.parseInt(id);
 		
-		if(film != null ) {
-			System.out.println("This printed!!!!!!!!");
-		film = dao.updateFilm(film);
-		mv.addObject("update",film);
-		}
-		else {
-			System.out.println("HIT");
-		}
+		Film filmold = dao.findFilmById(newId);
+
+		
+	mv.addObject("update", film);
 		mv.setViewName("updateFilm");
-		
+
 		return mv;
 	}
 
@@ -120,7 +108,7 @@ public class FilmController {
 		Film filmMe = dao.findFilmById(newId);
 		mv.addObject("update", filmMe);
 		mv.setViewName("updatedFilms");
-  
+
 		return mv;
 	}
 

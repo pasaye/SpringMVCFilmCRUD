@@ -13,16 +13,11 @@
 			 <a href="index.html">Home</a>
 
          	<ul>
-				<c:forEach var="x" items="${update}">
-					<li><a href="singleFilm.do?title=${x.title }">${x.id}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.title}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
-					<br>
-					<br>
-			
-				</c:forEach>
+				<li><a href="singleFilm.do?title=${x.title }">${update.id}</a></li>
+				<li><a href="singleFilm.do?title=${x.title }">${update.title}</a></li>
+				<li><a href="singleFilm.do?title=${x.title }">${update.description}</a></li>
+				<li><a href="singleFilm.do?title=${x.title }">${update.releaseYear}</a></li>
+				<li><a href="singleFilm.do?title=${x.title }">${update.rating}</a></li>
 			</ul>
 		</c:when>
 		<c:otherwise>

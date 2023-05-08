@@ -12,7 +12,7 @@
 	<c:choose> 
 	<c:when test="${! empty update}"> 
 
-	<form class="container" action="updateFilm.do" method="POST">
+	<form class="container" action="AddNewFilm.do" method="POST">
 		<fieldset class="items add">
 			<%-- film id:<input type="number" name="id" value="${update.id}"/>  --%>
 			<label id="one"> Title: </label>  

@@ -13,7 +13,7 @@
 <div class="scroll">
 	<c:choose>
 		<c:when test="${! empty film}">
-			<a href="singleFilm.do?id=${film.id }">
+			<a href="singleFilm.do?id=${film.id}">
 				<ul>
 					<li>Film ID: ${film.id}</li>
 					<li>Title: ${film.title}</li>
