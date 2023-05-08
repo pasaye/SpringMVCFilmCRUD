@@ -6,52 +6,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Film</title>
+<link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<div class="container">
+<div class="scroll">
 	<c:choose>
 		<c:when test="${! empty film}">
-	${film.id}
-	${film.title}
-	${film.description}
-	${film.language}
-	${film.rentalRate}
-	${film.length}
-	${film.replacementCost}
-	${film.rating}
-	${film.specialFeatures}
-	${film.cast}
-	${film.category}
+	<ul>	
+		<li><div class="grow">${film.id}</div></li>
+		<li><div class="grow">${film.title}</div></li>
+		<li><div class="grow">${film.description}</div></li>
+		<li><div class="grow">${film.language}</div></li>
+		<li><div class="grow">${film.rentalRate}</div></li>
+		<li><div class="grow">${film.length}</div></li>
+		<li><div class="grow">${film.replacementCost}</div></li>
+		<li><div class="grow">${film.rating}</div></li>
+		<li><div class="grow">${film.specialFeatures}</div></li>
+		<li><div class="grow">${film.cast}</div></li>
+		<li><div class="grow">${film.category}</div></li>
+	</ul>
 		</c:when>
 	</c:choose>
 	
 	<c:choose>
 		<c:when test="${! empty newFilm}">
-	${newFilm.id}
-	${newFilm.title}
-	${newFilm.description}
-	${newFilm.language}
-	${newFilm.rentalRate}
-	${newFilm.length}
-	${newFilm.replacementCost}
-	${newFilm.rating}
-	${newFilm.specialFeatures}
-	${newFilm.cast}
-	${newFilm.category}
+	<ul>
+		<li><div class="grow">${newFilm.id}</div></li>
+		<li><div class="grow">${newFilm.title}</div></li>
+		<li><div class="grow">${newFilm.description}</div></li>
+		<li><div class="grow">${newFilm.language}</div></li>
+		<li><div class="grow">${newFilm.rentalRate}</div></li>
+		<li><div class="grow">${newFilm.length}</div></li>
+		<li><div class="grow">${newFilm.replacementCost}</div></li>
+		<li><div class="grow">${newFilm.rating}</div></li>
+		<li><div class="grow">${newFilm.specialFeatures}</div></li>
+		<li><div class="grow">${newFilm.cast}</div></li>
+		<li><div class="grow">${newFilm.category}</div></li>
+	</ul>		
 		</c:when>
 	</c:choose>
 	
 	<c:choose>
 	<c:when test="${! empty resultFilms}">
 	<c:forEach var="x" items="${ resultFilms}">	
-	${x.title}
-	${x.description}
-	${x.language}
-	${x.rating}
-	${x.specialFeatures}
-	${x.cast}
-	${x.category}
+	<ul>
+		<li><div class="grow">${x.id}</div></li>
+		<li><div class="grow">${x.title}</div></li>
+		<li><div class="grow">${x.description}</div></li>
+		<li><div class="grow">${x.language}</div></li>
+		<li><div class="grow">${x.rating}</div></li>
+		<li><div class="grow">${x.specialFeatures}</div></li>
+		<li><div class="grow">${x.cast}</div></li>
+		<li><div class="grow">${x.category}</div></li>
+	</ul>		
 	</c:forEach>
 	</c:when>
 	</c:choose>
+</div>
+</div>
 </body>
 </html>

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Films</title>
+<link rel="stylesheet" href="addForm.css" type="text/css">
 </head>
 <body>
 	<%-- <c:choose> --%>

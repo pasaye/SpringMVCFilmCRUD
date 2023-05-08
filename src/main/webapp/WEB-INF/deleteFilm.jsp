@@ -6,12 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Spring MVC Film Site</title>
+<link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<div class="container">
+<div class="scroll">
 	<p>You've successfully deleted this film</p>
 
 	<a href="index.html" class="btn btn-secondary" role="button">Back
 		to Home</a>
-
+</div>		
+</div>
 </body>
 </html>

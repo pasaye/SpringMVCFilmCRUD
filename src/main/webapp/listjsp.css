@@ -1,0 +1,66 @@
+body{
+	background-image: url("https://images.unsplash.com/photo-1595769816263-9b910be24d5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bW92aWUlMjB0aGVhdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+	background-repeat: no-repeat;
+	background-size: 200vh, 200vw;
+	
+	
+	overflow: hidden;
+}
+
+.container {
+	width: 1000px;
+	height:1000px;
+	
+	margin-top: -125px;
+	margin-left: 445px;
+	display: flex;
+	align-items: center;
+}
+
+div.scroll {
+ 	background-color: rgba(255, 255, 255, .0);
+	background-blend-mode: overlay;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+  width: 600px;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+ul > li{
+	list-style-type: none;
+	text-align: left;
+}
+
+
+ a {
+ text-decoration: none;
+ color: black;
+ text-shadow:  0 0 5px #fff,
+                 0 0 10px #fff, 
+                 0 0 20px grey, 
+                 0 0 30px grey, 
+                 0 0 40px grey, 
+                 0 0 55px grey, 
+                 0 0 70px grey;
+ }
+ 
+ a:hover {
+ color: blue;
+ text-shadow: none;
+ transition: 1s;
+ }
+ 
+ .grow {
+ width: auto;
+ }
+ .grow:hover {
+ 
+  transform: scale(1,5);
+  transition: 5s;
+ }
+ 

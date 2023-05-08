@@ -6,27 +6,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Films</title>
+<link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<div class="container">
+<div class="scroll">
 	<c:choose>
 		<c:when test="${! empty keyword}">
 		<ul>
 				<c:forEach var="x" items="${keyword}">
-					<li><a href="singleFilm.do?title=${x.title }">${x.title}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
-					<li><a href="singleFilm.do?title=${x.title }">${x.language}</a></li>
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.title}</a></div></li>
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.description}</a></div></li>
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></div></li>
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.rating}</a></div></li>
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.language}</a></div></li>
 					<br>
 					<br>
-			
 				</c:forEach>
+				
 			</ul>
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
+</div>
+<a href="index.html" class="btn btn-secondary" role="button">Back
+		to Home</a>
+</div>
 </body>
 </html>
