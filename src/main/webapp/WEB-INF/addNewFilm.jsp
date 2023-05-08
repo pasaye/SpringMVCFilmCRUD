@@ -22,7 +22,7 @@
 					<li><div class="grow">Description: ${newFilm.description}</div></li>
 					<li><div class="grow">Year: ${newFilm.releaseYear}</div></li>
 					<li><div class="grow">Rating: ${newFilm.rating}</div></li>
-					<li><div class="grow">language: ${newFilm.language}</div></li>
+					<li><div class="grow">language: ${newFilm.languageId}</div></li>
 					<li><div class="grow">${newFilm.cast}</div></li>
 					<li><div class="grow">${newFilm.category}</div></li>
 				</ul>

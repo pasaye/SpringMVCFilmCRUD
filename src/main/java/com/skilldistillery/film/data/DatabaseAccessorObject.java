@@ -237,7 +237,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
-			conn.setAutoCommit(false); 
+			conn.setAutoCommit(false);
 			String sql = "INSERT INTO actor (first_name, last_name) " + " VALUES (?,?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, actor.getFirstName());
@@ -261,7 +261,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			} else {
 				actor = null;
 			}
-			conn.commit(); 
+			conn.commit();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -301,7 +301,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					stmt.setInt(2, actor.getId());
 					updateCount = stmt.executeUpdate();
 				}
-				conn.commit(); 
+				conn.commit();
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -365,15 +365,12 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 
-		
-
-
-					film.setId(newFilmId); }
+					film.setId(newFilmId);
+				}
 			} else {
 				film = null;
 			}
-			conn.commit(); 
-			
+			conn.commit();
 
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -417,7 +414,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					stmt.setInt(2, actor.getId());
 					updateCount = stmt.executeUpdate();
 				}
-				conn.commit(); 
+				conn.commit();
 			}
 
 		} catch (SQLException sqle) {
@@ -470,13 +467,15 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film filmToUpdate = film;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
-			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, rating = ? WHERE id = ?";
+			conn.setAutoCommit(false); 
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, language_id=?, rating = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDescription());
 			stmt.setDouble(3, film.getReleaseYear());
-			stmt.setString(4, film.getRating());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setString(5, film.getRating());
+			stmt.setInt(6, film.getId());
 
 			int updateCount = stmt.executeUpdate();
 
@@ -491,8 +490,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				}
 			}
 			return null;
-		
-
 		}
 		return filmToUpdate;
 	}

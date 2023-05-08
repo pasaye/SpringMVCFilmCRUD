@@ -41,7 +41,7 @@
 			</form>
 			<form action="updatedFilms.do" method="GET">		
 				  <input type="hidden" value="${film.id}" name="id" />
-				  <input type="submit" value="update" />
+				  <input type="submit" value="${film.id}" />
 			</form>
 			<a href="index.html" class="btn btn-secondary" role="button">Back
 		to Home</a>

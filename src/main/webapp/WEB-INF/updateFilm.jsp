@@ -8,14 +8,12 @@
 <title>Update Film</title>
 </head>
 <body>
-
-	
 	<c:choose>
-		<c:when test="${! empty film}">
+		<c:when test="${! empty update}">
 			 <a href="index.html">Home</a>
 
          	<ul>
-				<c:forEach var="x" items="${film}">
+				<c:forEach var="x" items="${update}">
 					<li><a href="singleFilm.do?title=${x.title }">${x.id}</a></li>
 					<li><a href="singleFilm.do?title=${x.title }">${x.title}</a></li>
 					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>

@@ -6,25 +6,7 @@
 <link rel="stylesheet" href="addForm.css" type="text/css">
 </head>
 <body>
-	<h1>Add new film</h1>
-
-
-   <br>
-Language ID:    
-   	<div class="form-group">
-					<label for="lang">LanguageID</label> <select class="form-select"
-						name="languageId" id="lang" aria-label="Default">
-						<option selected value="1">English</option>
-					</select>
-				</div>
-
-    
-  <!--   Actor:       
-    <input type="text" name="cast"/>  -->
-    
-    <input type="submit" value="Add New Film" />
-  </form>
-
+	<h1>Add new film</h1>   
 	<form class="container" action="AddNewFilm.do" method="GET">
 		<fieldset class="items add">
 			<label id="one"> Title: </label> 
@@ -47,16 +29,17 @@ Language ID:
 			<input type="radio" id="NC17" name="rating" value="NC17" />NC17
 		</fieldset>
 		<fieldset class="items">
-			<label id="five"> Language ID: </label> 
-			<input type="number" name="languageId" min="1" max="6" required /> <br>
-			<ol>
-				<li>English</li>
-				<li>Italian</li>
-				<li>Japanese</li>
-				<li>Mandarin</li>
-				<li>French</li>
-				<li>German</li>
-			</ol>
+			<label id="five"> Language ID: </label>    
+   	<div class="form-group">
+	 <select required class="form-select" name="languageId" id="lang" aria-label="Default">
+						<option selected value="1">English</option>
+						<option selected value="2">Italian</option>
+						<option selected value="3">Japanese</option>
+						<option selected value="4">Mandarin</option>
+						<option selected value="5">French</option>
+						<option selected value="6">German</option>
+					</select>
+				</div>
 			<input type="submit" value="Add New Film" />
 		</fieldset>
 	</form>

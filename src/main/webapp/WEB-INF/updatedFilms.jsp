@@ -9,47 +9,47 @@
 <link rel="stylesheet" href="addForm.css" type="text/css">
 </head>
 <body>
-	<%-- <c:choose> --%>
-		<%-- <c:when test="${! empty update}"> --%>
-		
-		${update}
-		 	
-	
-			<form action="updateFilm.do" method="POST">
-			
-		<%-- 	film id:<input type="number" name="id" value="${update.id}"/> --%>
-				Title: <input type="text" name="title" value="${update.title}" } /> <br> Description: <input
-					type="text" name="description" /> <br> Release year: <input
-					type="number" name="releaseYear" /> <br> <br> Film
-				Ratings: <input type="radio" id="G" name="rating" value="${update.rating}">G
-				<input type="radio" id="PG" name="rating" value="${update.rating}">PG <input
-					type="radio" id="PG13" name="rating" value="${update.rating}">PG13 <input
-					type="radio" id="R" name="rating" value="${update.rating}"">R <input
-					type="radio" id="NC17" name="rating" value="${update.rating}">NC17 <br>
-				<div class="form-group">
-					<label for="lang">LanguageID</label> <select class="form-select"
-						name="languageId" id="lang" aria-label="Default" value="${update.language}">
-						<option selected value="1">English</option>
-					</select>
-				</div>
+	<c:choose> 
+	<c:when test="${! empty update}"> 
 
-			
-				  <input type="hidden"  name="id" />
-				  <input type="submit" value="update" />
-
-
-
-				
-				
-
-			</form>
-			<br>
-
-
-		<%-- </c:when> --%><%-- 
-		<c:otherwise>
-			<p>No film found</p> --%>
-	<%-- 	</c:otherwise> --%>
-	<%-- </c:choose> --%>
+	<form class="container" action="updateFilm.do" method="POST">
+		<fieldset class="items add">
+			<%-- film id:<input type="number" name="id" value="${update.id}"/>  --%>
+			<label id="one"> Title: </label>  
+				<input type="text" name="title" value="${update.title}" required/>		
+		    <label id="two"> Description: </label> 
+		        <input type="text" name="description" value="${update.description}"/> 
+		    <label id="three">Release year: </label> 
+			   <input type="number" name="releaseYear" value="${update.releaseYear}" required/>
+		</fieldset>
+		<fieldset class="items">
+			<label id="four">Film Ratings </label> 
+				<input type="radio" id="G" name="rating"/>G 
+				<input type="radio" id="PG" name="rating"/>PG 
+				<input type="radio" id="PG13" name="rating"/>PG13
+				<input type="radio" id="R" name="rating"/>R
+				<input type="radio" id="NC17" name="rating"/>NC17
+		</fieldset>
+		<fieldset class="items">
+			<label id="five"> Language ID: </label>
+			<div class="form-group">
+				<select required class="form-select" name="languageId" id="lang" aria-label="Default">
+					<option selected value="1">English</option>
+					<option selected value="2">Italian</option>
+					<option selected value="3">Japanese</option>
+					<option selected value="4">Mandarin</option>
+					<option selected value="5">French</option>
+					<option selected value="6">German</option>
+				</select>
+			</div>
+		</fieldset>
+		<input type="submit" value ="${update.id}" name="id" >
+		<input type="hidden" name="id" /> <input type="submit" name="id" />
+	</form>
+	</c:when> 
+	 <c:otherwise>
+			<p>No film found</p> 
+		</c:otherwise> 
+	</c:choose> 
 </body>
 </html>
