@@ -391,8 +391,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public boolean saveFilm(Film film) {
+	public Film saveFilm(Film film) {
 		Connection conn = null;
+		Film filmToSave = film;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false);
@@ -428,9 +429,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			return false;
+			return null;
 		}
-		return true;
+		return filmToSave;
 	}
 
 	@Override
@@ -466,6 +467,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	@Override
 	public Film updateFilm(Film film) {
 		Connection conn = null;
+		Film filmToUpdate = film;
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASS);
 			conn.setAutoCommit(false); // START TRANSACTION
@@ -492,7 +494,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 
 		}
-		return film;
+		return filmToUpdate;
 	}
 
 }

@@ -36,29 +36,32 @@
 
 			<h2>Update Film Details</h2>
 
-			<form action="updateFilm.do" method="GET">
-				Title: <input type="text" name="title" /> <br> Description: <input
+			<form action="updatedFilms.do" method="GET">
+			
+		<%-- 	film id:<input type="text" name="id" value="${film.id}"/>
+				Title: <input type="text" name="title" value="${film.title}" } /> <br> Description: <input
 					type="text" name="description" /> <br> Release year: <input
 					type="number" name="releaseYear" /> <br> <br> Film
-				Ratings: <input type="radio" id="G" name="rating" value="G">G
-				<input type="radio" id="PG" name="rating" value="PG">PG <input
-					type="radio" id="PG13" name="rating" value="PG13">PG13 <input
-					type="radio" id="R" name="rating" value="R">R <input
-					type="radio" id="NC17" name="rating" value="NC17">NC17 <br>
+				Ratings: <input type="radio" id="G" name="rating" value="${film.rating}">G
+				<input type="radio" id="PG" name="rating" value="${film.rating}">PG <input
+					type="radio" id="PG13" name="rating" value="${film.rating}">PG13 <input
+					type="radio" id="R" name="rating" value="${film.rating}"">R <input
+					type="radio" id="NC17" name="rating" value="${film.rating}">NC17 <br>
 				<div class="form-group">
 					<label for="lang">LanguageID</label> <select class="form-select"
-						name="languageId" id="lang" aria-label="Default">
+						name="languageId" id="lang" aria-label="Default" value="${film.language}">
 						<option selected value="1">English</option>
 					</select>
 				</div>
+ --%>
+			
+				  <input type="hidden" value="${film.id}" name="id" />
+				  <input type="submit" value="update" />
 
 
 
-
-				<br> <br> <input type="number" value="Update film"
-					name="id" /> <input type="hidden" value="${film.id}"
-					name="UpdateFilm" /> <input type="submit" value="updateFilm"
-					name="UpdateButton" />
+				
+				
 
 			</form>
 			<br>

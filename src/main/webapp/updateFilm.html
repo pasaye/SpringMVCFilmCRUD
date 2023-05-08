@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Film</title>
 </head>
 <body>
   <h3>Add new film</h3>
   <p> Fill in the details of the film: </p>
-  <form action="AddNewFilm.do" method="GET">
+  <form action="AddNewFilm.do" method="POST">
     Title:      
     <input type="text" name="title"/> 
     <br>
@@ -48,7 +48,7 @@ Language ID:
 	<a href="index.html">Return home</a>
 	${film.title}
 
-	<form action="updateFilm.do" method="GET">
+	<form action="updateFilm.do" method="POST">
 		Title: <input type="text" name="title" /> <br> Description: <input
 			type="text" name="description" /> <br> Release year: <input
 			type="text" name="release_year" /> <br> Rating: <input

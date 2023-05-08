@@ -11,18 +11,25 @@
 
 	
 	<c:choose>
-		<c:when test="${! empty update}">
-			<a href="filmId.do?id=${film.id }"> <a href="index.html">Home</a>
+		<c:when test="${! empty film}">
+			 <a href="index.html">Home</a>
 
-				${update.title} ${update.description} ${update.releaseYear} ${update.rating}
-
-
-			</a>
-
-		
-
+         	<ul>
+				<c:forEach var="x" items="${film}">
+					<li><a href="singleFilm.do?title=${x.title }">${x.id}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.title}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.description}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></li>
+					<li><a href="singleFilm.do?title=${x.title }">${x.rating}</a></li>
+					<br>
+					<br>
+			
+				</c:forEach>
+			</ul>
 		</c:when>
 		<c:otherwise>
+			 <a href="index.html">Home</a>
+			 <br>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
