@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<%@ include file="nav.jsp"%>
 <div class="container">
 <div class="scroll">
 	<c:choose>
@@ -25,27 +26,13 @@
 					<li>${film.category}</li>
 				</ul>
 			</a>
-
-
-
 		</c:when>
 		<c:otherwise>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-</div>
-			<form action="deleteFilm.do" method="POST">
-				<input type="number" value="Delete film" name="id" /> <input
-					type="hidden" value="${film.id}" name="deleteFilm" /> <input
-					type="submit" value="deleteFilm" name="deleteButton" />
-			</form>
-			<form action="updatedFilms.do" method="GET">		
-				  <input type="hidden" value="${film.id}" name="id" />
-				  <input type="submit" value="${film.id}" />
-			</form>
-			<a href="index.html" class="btn btn-secondary" role="button">Back
-		to Home</a>
+</div>			
 </div>	
-
+<%@ include file="update_delete.jsp"%>
 </body>
 </html>

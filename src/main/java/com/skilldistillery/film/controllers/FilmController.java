@@ -86,28 +86,22 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "updateFilm.do", params = "id", method = { RequestMethod.POST })
-	public ModelAndView updateFilms(Film film) {
-		ModelAndView mv = new ModelAndView();
-//		int newId = Integer.parseInt(id);
-//		Film film = dao.findFilmById(newId);
-//
-//		film = dao.saveFilm(film);
-	
-		Film newfilm = dao.updateFilm(film);
-		
+	public ModelAndView editFilm(Film film) {
+		ModelAndView mv = new ModelAndView();	
+		Film newfilm = dao.updateFilm(film);	
 	    mv.addObject("update", newfilm);
 		mv.setViewName("updateFilm");
 
 		return mv;
 	}
 
-	@RequestMapping(path = "updatedFilms.do", params = "id", method = { RequestMethod.GET })
+	@RequestMapping(path = "editFilms.do", params = "id", method = { RequestMethod.GET })
 	public ModelAndView updateFilm(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
 		int newId = Integer.parseInt(id);
 		Film filmMe = dao.findFilmById(newId);
 		mv.addObject("update", filmMe);
-		mv.setViewName("updatedFilms");
+		mv.setViewName("editFilms");
 
 		return mv;
 	}

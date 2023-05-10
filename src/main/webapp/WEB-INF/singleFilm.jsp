@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<%@ include file="nav.jsp"%>
 <div class="container">
 <div class="scroll">
 	<c:choose>
@@ -65,5 +66,6 @@
 	</c:choose>
 </div>
 </div>
+<%@ include file="update_delete.jsp"%>
 </body>
 </html>

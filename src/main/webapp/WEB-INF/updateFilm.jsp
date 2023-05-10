@@ -8,10 +8,9 @@
 <title>Update Film</title>
 </head>
 <body>
+<%@ include file="nav.jsp"%>
 	<c:choose>
 		<c:when test="${! empty update}">
-			 <a href="index.html">Home</a>
-
          	<ul>
 				<li><a href="singleFilm.do?title=${x.title }">${update.id}</a></li>
 				<li><a href="singleFilm.do?title=${x.title }">${update.title}</a></li>
@@ -21,17 +20,9 @@
 			</ul>
 		</c:when>
 		<c:otherwise>
-			 <a href="index.html">Home</a>
-			 <br>
 			<p>No film found</p>
 		</c:otherwise>
 	</c:choose>
-
-
-
-
-
-
-
+<%@ include file="update_delete.jsp"%>
 </body>
 </html>

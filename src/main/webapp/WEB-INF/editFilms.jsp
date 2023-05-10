@@ -8,6 +8,7 @@
 <title>Films</title>
 <link rel="stylesheet" href="addForm.css" type="text/css">
 </head>
+<%@ include file="nav.jsp"%>
 <body>
 	<c:choose> 
 	<c:when test="${! empty update}"> 

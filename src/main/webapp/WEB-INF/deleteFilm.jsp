@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="listjsp.css" type="text/css">
 </head>
 <body>
+<%@ include file="nav.jsp"%>
 <div class="container">
 <div class="scroll">
 	<p>You've successfully deleted this film</p>
