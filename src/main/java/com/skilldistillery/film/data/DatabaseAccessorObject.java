@@ -193,7 +193,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String rating = rs.getString("rating");
 				String category = getFilmCategory(id);
 
-				Film film = new Film(title, desc, releaseYear, langId, rating);
+				Film film = new Film(id, title, desc, releaseYear, langId, rating);
 				film.setCategory(category);
 				film.setCast(findActorsByFilmId(id));
 				search.add(film);

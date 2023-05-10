@@ -16,6 +16,7 @@
 		<c:when test="${! empty keyword}">
 		<ul>
 				<c:forEach var="x" items="${keyword}">
+				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.id}</a></div></li>
 				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.title}</a></div></li>
 				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.description}</a></div></li>
 				<li><div class="grow"><a href="singleFilm.do?title=${x.title }">${x.releaseYear}</a></div></li>
